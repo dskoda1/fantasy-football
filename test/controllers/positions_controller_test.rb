@@ -16,11 +16,19 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create position" do
-    assert_difference('Position.count') do
+    assert_difference 'Position.count', 1 do
       post positions_url, params: { position: { name: @position.name } }
     end
 
     assert_redirected_to position_url(Position.last)
+  end
+
+  test "should fail to create with 422 on empty name" do
+    @position = positions(:empty_name)
+    assert_difference 'Position.count', 0 do
+      post positions_url, params: { position: { name: @position.name } }
+    end
+    assert_response :unprocessable_entity
   end
 
   test "should show position" do
@@ -35,7 +43,12 @@ class PositionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update position" do
     patch position_url(@position), params: { position: { name: @position.name } }
-    assert_redirected_to position_url(@position)
+    assert_redirected_to position_url(@position.id)
+  end
+
+  test "shoudl fail to update with 422 on empty name" do
+    patch position_url(@position), params: { position: { name: '' } }
+    assert_response :unprocessable_entity
   end
 
   test "should destroy position" do

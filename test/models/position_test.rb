@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class PositionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    test 'Position name is validated' do
+        p = Position.new
+        assert_not p.valid?
+        assert_equal [:name], p.errors.keys
+    end
 end

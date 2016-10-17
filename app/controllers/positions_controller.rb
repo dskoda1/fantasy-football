@@ -31,7 +31,7 @@ class PositionsController < ApplicationController
         format.html { redirect_to @position, notice: 'Position was successfully created.' }
         format.json { render :show, status: :created, location: @position }
       else
-        format.html { render :new }
+        format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +45,7 @@ class PositionsController < ApplicationController
         format.html { redirect_to @position, notice: 'Position was successfully updated.' }
         format.json { render :show, status: :ok, location: @position }
       else
-        format.html { render :edit }
+        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end

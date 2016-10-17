@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    test 'Team name is validated' do
+        t = Team.new
+        assert_not t.valid?
+        assert_equal [:name], t.errors.keys
+    end
+
 end
