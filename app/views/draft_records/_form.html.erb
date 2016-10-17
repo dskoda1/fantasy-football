@@ -1,0 +1,38 @@
+<%= form_for(draft_record) do |f| %>
+  <% if draft_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(draft_record.errors.count, "error") %> prohibited this draft_record from being saved:</h2>
+
+      <ul>
+      <% draft_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="row form-group">
+    <div class="col-xs-12 col-md-2 offset-md-3">
+      <%= f.label :player_id %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= f.collection_select(:player_id, Player.all(), :id, :name, {}, {:class => 'form-control'}) %> 
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-xs-12 col-md-2 offset-md-3">
+      <%= f.label :team_id %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <%= f.collection_select(:team_id, Team.all(), :id, :name, {}, {:class => 'form-control'}) %> 
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-xs-12 col-md-6 offset-md-3">
+      <%= f.submit 'Submit', :class => 'btn btn-success' %>
+    </div>
+  </div>
+
+<% end %>

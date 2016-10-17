@@ -1,0 +1,1 @@
+json.partial! "draft_records/draft_record", draft_record: @draft_record

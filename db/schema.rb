@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016235720) do
+ActiveRecord::Schema.define(version: 20161017141545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "draft_records", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id", "team_id"], name: "index_draft_records_on_player_id_and_team_id", unique: true, using: :btree
+  end
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
