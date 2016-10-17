@@ -6,6 +6,5 @@ class PlayerTest < ActiveSupport::TestCase
         p = Player.new
         assert_not p.valid?
         assert_equal [:position, :name], p.errors.keys
-
     end
 end

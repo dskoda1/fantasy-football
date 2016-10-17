@@ -2,8 +2,10 @@
 
 one:
   name: "Position one"
+
 two:
   name: "Position two"
+
 empty_name:
   name: ""
 
