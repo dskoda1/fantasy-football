@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+        <h1>Players</h1>
+        <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered ">
+          <thead class="thead-default">
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @players.each do |player| %>
+              <tr>
+                <td><%= player.name %></td>
+                <td><%= player.position.name %></td>
+                <td><%= link_to 'Show', player %></td>
+                <td><%= link_to 'Edit', edit_player_path(player) %></td>
+                <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    <%= link_to 'New Player', new_player_path %>
+    </div>
+</div>
+
+<br>
+
