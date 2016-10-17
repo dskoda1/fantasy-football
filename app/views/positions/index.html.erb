@@ -1,27 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Positions</h1>
+<div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+        <h1>Positions</h1>
+        <%= link_to 'New Position', new_position_path, { :class => 'btn btn-primary' }%>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered ">
+                <thead class="thead-default">
 
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <tr>
+                        <th>Name</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
 
-  <tbody>
-    <% @positions.each do |position| %>
-      <tr>
-        <td><%= position.name %></td>
-        <td><%= link_to 'Show', position %></td>
-        <td><%= link_to 'Edit', edit_position_path(position) %></td>
-        <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <tbody>
+                    <% @positions.each do |position| %>
+                        <tr>
+                            <td><%= link_to position.name, position %></td>
+                            <td><%= link_to 'Edit', edit_position_path(position) %></td>
+                            <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <br>
 
-<%= link_to 'New Position', new_position_path %>
+

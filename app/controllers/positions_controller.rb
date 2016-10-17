@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :set_position, only: [:show, :edit, :update, :destroy]
+  before_action :set_position, :set_players, only: [:show, :edit, :update, :destroy]
 
   # GET /positions
   # GET /positions.json
@@ -65,6 +65,10 @@ class PositionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_position
       @position = Position.find(params[:id])
+    end
+
+    def set_players
+      @players = Player.where(position_id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
