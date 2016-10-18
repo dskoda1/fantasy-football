@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  player_id: 1
-  team_id: 1
+    player_id: players(:one).id
+    team_id: teams(:one).id
 
 
 #invalid_player:

@@ -46,6 +46,7 @@ class DraftRecordsController < ApplicationController
         format.json { render :show, status: :ok, location: @draft_record }
       else
         format.html { render :edit }
+        #format.html { render :edit }
         format.json { render json: @draft_record.errors, status: :unprocessable_entity }
       end
     end

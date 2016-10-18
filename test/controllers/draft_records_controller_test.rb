@@ -34,7 +34,7 @@ class DraftRecordsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update draft_record" do
-    patch draft_record_url(@draft_record), params: { draft_record: { player_id: @draft_record.player_id, team_id: teams(:two).id  } }
+    patch draft_record_url(@draft_record), params: { draft_record: { player_id: teams(:two).id, team_id: teams(:three).id  } }
     assert_redirected_to draft_record_url(@draft_record)
   end
 

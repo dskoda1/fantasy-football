@@ -7,3 +7,8 @@ one:
 two:
   name: MyString
   position: two
+
+three:
+  name: MyString
+  position: one
+
