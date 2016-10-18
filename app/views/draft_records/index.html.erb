@@ -2,32 +2,34 @@
 <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
 
-<h1>Draft Records</h1>
-<%= link_to 'New Draft Record', new_draft_record_path, { :class => 'btn btn-primary'} %>
+        <h1>Draft Records</h1>
+        <%= link_to 'New Draft Record', new_draft_record_path, { :class => 'btn btn-primary'} %>
         <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered ">
-          <thead class="thead-default">
+            <table class="table table-striped table-hover table-bordered ">
+                <thead class="thead-default">
 
-    <tr>
-      <th>Player</th>
-      <th>Team</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Team</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
 
-  <tbody>
-    <% @draft_records.each do |draft_record| %>
-      <tr>
-        <td><%= draft_record.player_id %></td>
-        <td><%= draft_record.team_id %></td>
-        <td><%= link_to 'Show', draft_record %></td>
-        <td><%= link_to 'Edit', edit_draft_record_path(draft_record) %></td>
-        <td><%= link_to 'Destroy', draft_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-    </div>
+                <tbody>
+                    <% @draft_records.each do |draft_record| %>
+                        <tr>
+                            <% player = Player.find(draft_record.player_id) %>
+                            <% team = Team.find(draft_record.team_id) %>
+                            <td><%= link_to player.name, player %></td>
+                            <td><%= link_to team.name, team %></td>
+                            <td><%= link_to 'Details', draft_record %></td>
+                            <td><%= link_to 'Edit', edit_draft_record_path(draft_record) %></td>
+                            <td><%= link_to 'Destroy', draft_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
