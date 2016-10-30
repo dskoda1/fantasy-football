@@ -24,14 +24,14 @@
         1,
         null
       ],
-      "/Users/Home/Documents/rails/fantasy-football/app/models/position.rb": [
+      "/Users/Home/Documents/rails/fantasy-football/app/models/team.rb": [
+        1,
         1,
         1,
         1,
         null
       ],
-      "/Users/Home/Documents/rails/fantasy-football/app/models/team.rb": [
-        1,
+      "/Users/Home/Documents/rails/fantasy-football/app/models/position.rb": [
         1,
         1,
         1,
@@ -372,7 +372,7 @@
         null
       ]
     },
-    "timestamp": 1476755034
+    "timestamp": 1477842989
   },
   "Unit Tests": {
     "coverage": {

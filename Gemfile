@@ -56,3 +56,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'coveralls', require: false
+
+gem 'rack-cors'

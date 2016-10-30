@@ -1,5 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+zero:
+  name: PlayerZero
+  position: two
+
 one:
   name: MyString
   position: one
